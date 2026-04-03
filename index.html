@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mare Mío | Donas & Cupcakes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --turquesa: #40E0D0;
+            --oscuro: #1a1a1a;
+            --blanco: #ffffff;
+            --gris-suave: #f9f9f9;
+            --whatsapp-verde: #25D366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--blanco);
+            color: var(--oscuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Header & Logo --- */
+        header {
+            padding: 30px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container {
+            width: 200px;
+            height: auto;
+            text-align: center;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 80px 5%;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        h1 span { color: var(--turquesa); }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-main, .cta-secondary {
+            display: inline-block;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-main {
+            background: var(--turquesa);
+            color: white;
+            border: 2px solid var(--turquesa);
+        }
+
+        .cta-main:hover {
+            background: #36c9ba;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(64, 224, 208, 0.3);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--turquesa);
+            border: 2px solid var(--turquesa);
+        }
+
+        .cta-secondary:hover {
+            background: var(--turquesa);
+            color: white;
+        }
+
+        /* --- Flexbox Gallery --- */
+        .menu-section { 
+            padding: 80px 5%; 
+            background: var(--gris-suave); 
+        }
+
+        .grid-productos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            flex: 1 1 320px;
+            max-width: 380px;
+            background: var(--blanco);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .img-container {
+            width: 100%;
+            height: 300px;
+            background-color: #f0f0f0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-info { padding: 30px; text-align: center; flex-grow: 1; }
+        .card-info h3 { margin-bottom: 10px; font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+        .card-info p { font-size: 0.95rem; color: #666; margin-bottom: 20px; }
+
+        .btn-card {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid var(--turquesa);
+            color: var(--turquesa);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-card:hover {
+            background: var(--turquesa);
+            color: white;
+        }
+
+        /* --- Reseñas --- */
+        .reviews-section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .reviews-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .grid-reviews {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .review-card {
+            flex: 1 1 280px;
+            max-width: 320px;
+            padding: 30px;
+            background: var(--gris-suave);
+            border-radius: 20px;
+            font-style: italic;
+        }
+
+        .stars { color: #FFD700; margin-bottom: 10px; }
+
+        /* --- Botón WhatsApp (Estilo captura) --- */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--whatsapp-verde);
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 32px;
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.5); 
+            z-index: 9999;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 0 35px rgba(37, 211, 102, 0.7); }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 5%;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-links { margin-bottom: 25px; }
+        .footer-links a {
+            color: var(--oscuro);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.85rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 600px) {
+            .whatsapp-btn { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 28px; }
+            h1 { font-size: 2.3rem; }
+            .cta-main, .cta-secondary { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="mare.jpeg" alt="Logo Mare Mío" style="width: 100%; height: auto;">
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Mare Mío: <span>El arte</span> de las donas y cupcakes.</h1>
+        <p>Un diseño minimalista para antojos extraordinarios. Calidad artesanal en cada bocado.</p>
+        
+        <div class="cta-container">
+            <a href="https://wa.me/tu-numero-aqui" class="cta-main">¡Haz tu pedido ahora!</a>
+            <a href="#productos" class="cta-secondary">Ver el menú</a>
+        </div>
+    </section>
+
+    <section id="productos" class="menu-section">
+        <div class="grid-productos">
+            
+            <article class="card">
+                <div class="img-container" style="background-image: url('https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-info">
+                    <h3>Donas Glaseadas</h3>
+                    <p>Nuestra receta secreta con un toque turquesa artesanal.</p>
+                    <a href="https://wa.me/tu-numero-aqui" class="btn-card">Pedir ésta</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="img-container" style="background-image: url('https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-info">
+                    <h3>Cupcakes de Vainilla</h3>
+                    <p>Suaves, esponjosos y decorados con absoluta precisión.</p>
+                    <a href="https://wa.me/tu-numero-aqui" class="btn-card">Pedir ésta</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="img-container" style="background-image: url('cumple.jpg');"></div>
+                <div class="card-info">
+                    <h3>Pedidos especiales</h3>
+                    <p>Pedidos para cumpleaños y ocasiones importantes.</p>
+                    <a href="https://wa.me/tu-numero-aqui" class="btn-card">Pedir ésta</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <h2 class="reviews-title">Lo que dicen nuestros clientes</h2>
+        <div class="grid-reviews">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Las mejores donas que he probado, el diseño turquesa es precioso."</p>
+                <small>— Ana G.</small>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"El cupcake de vainilla es súper esponjoso. ¡Repetiré seguro!"</p>
+                <small>— Carlos M.</small>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"Un servicio excelente y una presentación impecable."</p>
+                <small>— Sofía R.</small>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Inicio</a>
+            <a href="#">Productos</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </div>
+        <p style="opacity: 0.4; font-size: 0.8rem;">&copy; 2026 Mare Mío. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/tu-numero-aqui" class="whatsapp-btn" target="_blank" aria-label="Contacto por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
